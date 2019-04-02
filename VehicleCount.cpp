@@ -27,12 +27,45 @@ void VehicleCount::setInput(const cv::Mat &i) {
      img_input = i;
 }
 
-/*
+/* MODIFY
 void VehicleCount::setTrack(const cvb::CvTracks &t) {
 
 }
 */
 
 VehiclePosition VehicleCount::getVehiclePosition(const cv::Point2d centroid) {
+     VehiclePosition vehiclePosition = VP_NONE;
 
+     if (laneOrientation == LO_HORIZONTAL) {
+          if (centroid.x < VC::roi_x0) {
+               cv::putText(img_input, "STATE: A", cv::Point(10, img_height/2),
+                         cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(255,255,255));
+               vehiclePosition = VP_A;
+          }
+
+          if (centroid.x > VC::roi_x0) {
+               cv::putText(img_input, "STATE: B", cv::Point(10, img_height/2),
+                         cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(255,255,255));
+               vehiclePosition = VP_B;
+          }
+     }
+
+     if (laneOrientation == LO_VERTICAL) {
+          if (centroid.y > VC::roi_y0) {
+               cv::putText(img_input, "STATE: B", cv::Point(10, img_height/2),
+                         cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(255,255,255));
+               vehiclePosition = VP_A;
+          }
+
+          if (centroid.y < VC::roi_y0) {
+               cv::putText(img_input, "STATE: B", cv::Point(10, img_height/2),
+                         cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(255,255,255));
+               vehiclePosition = VP_B;
+          }
+     }
+     return vehiclePosition;
+}
+
+void VehicleCount::process() {
+     
 }

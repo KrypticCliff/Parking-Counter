@@ -1,6 +1,6 @@
 // Coded By Clifton Rawlings
 // March 28, 2019
-// Inspired by Simple Vehicle Counter
+// Inspired by Simple Vehicle Counter - GitHub
 
 #include <iostream>
 #include <string>
@@ -10,7 +10,7 @@
 enum LaneOrientation {
     LO_NONE          = 0,
     LO_HORIZONTAL    = 1,
-    LO_VERTIAL       = 2
+    LO_VERTICAL       = 2
 };
 
 enum VehiclePosition {
@@ -30,7 +30,7 @@ private:
     long countBA;
     bool firstTime;
     bool showOutput;
-    LaneOrientation laneOrientaiton;
+    LaneOrientation laneOrientation;
 
     //cvb::CvTracks tracks;
     //std::map<cvb::CvID, std::vector<CvPoint2D64f> > points;
