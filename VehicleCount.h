@@ -1,11 +1,12 @@
 // Coded By Clifton Rawlings
 // March 28, 2019
-// Inspired by Simple Vehicle Counter - GitHub
+// Inspired by Simple Vehicle Counter - GitHub #URL#
+
+#pragma once
 
 #include <iostream>
 #include <string>
 #include <opencv2/opencv.hpp>
-
 
 enum LaneOrientation {
     LO_NONE          = 0,
